@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<script src="libs/three.js"></script>
+		<script src="libs/physi.js"></script>
+		<script src="libs/keyboard.js"></script>
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="fonts/helvetiker_regular.typeface.js"></script>
+		<script src="loaders/OBJLoader.js"></script>
+		<script src="loaders/MTLLoader.js"></script>
+		<script src="loaders/OBJMTLLoader.js"></script>
+	</head>
+	<body>
+		<script src="js/final.js"></script>
+		<div id="Ammos"><span id="ammo"></span></div>
+		<div id="Reloading"><span id="isReload"></span></div>
+		<div id="Start">
+			<h4>Instructions:</h4>
+			<p>Kill as many zombies as you can</p>
+			<p>Movement: *WASD*</p>
+			<p>Shooting: click where you want to shoot</p>
+			<p>Reloading: Press *R* to reload your pistol</p>
+			<p>Weapons: hit *F* near a weapon box to pick it up</p>
+			<p>Pause: *P* to pause, *U* to unpause</p>
+			<p>Press the corresponding *number* to switch weapons</p>
+			<p>Click the screen to start!</p>
+		</div>
+		<div id="GO"><span id="gameover"></span></div>
+		<div id="Escore"><span id="endscore"></span></div>
+		<div id="END"></div>
+		<div id="Score"><span id="score"></span></div>
+		<div id="Money"><span id="money"></span></div>
+		<div id="Table">
+			<table>
+				<tr>
+					<th>PISTOL(1)</th>
+					<th>UZI(2)</th>
+				</tr>
+				<tr>
+					<td><span id="Pammo"></span></td>
+					<td><span id="Uammo"></span></td>
+				</tr>
+			</table>
+		</div>
+
+
+		<script type="text/x-glsl" id="vertex">
+		varying vec2 uVu;
+		void main()
+		{
+			uVu = uv;
+
+			gl_Position = projectionMatrix *
+				modelViewMatrix *
+				vec4(position,1.0);
+		}
+		</script>
+
+		<script type="text/x-glsl" id="fragment1">
+		varying vec2 uVu;
+		uniform sampler2D tDiffuse;
+		uniform float time;
+
+		mat2 scale( vec2 _scale )
+		{
+		    return mat2( _scale.x, 0.0,
+		                      0.0, _scale.y);
+		}
+
+		void main()
+		{
+			vec2 st = uVu;
+			
+			st -= vec2( 0.2 );
+			st = scale( vec2( tan( time ) + 0.5 ) ) * st;
+			//st += vec2( 0.2 );
+
+			gl_FragColor = texture2D( tDiffuse, st );
+		}
+		</script>
+
+		<script type="text/x-glsl" id="fragment2">
+		varying vec2 uVu;
+		uniform float x;
+		uniform float y;
+		uniform sampler2D tDiffuse;
+
+		float circle( in vec2 _st, float _size )
+		{
+			vec2 dist = _st-vec2(.05);
+		    return  smoothstep( _size-(_size*.01),_size+(_size*.01),dot(dist,dist)*4.0);
+		}
+
+		void main()
+		{
+			vec2 st = uVu;
+			st+=circle(x,y);
+			gl_FragColor = texture2D( tDiffuse, st );
+		}
+		</script>
+	</body>
+</html>

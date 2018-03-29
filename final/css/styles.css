@@ -1,0 +1,128 @@
+#Ammos
+{
+	right: 49.8%;
+	bottom: 49.5%;
+	z-index: 1000;
+	position: absolute;
+	color: white;
+	font-size: 80%;
+}
+
+#Reloading
+{
+	bottom: 49%;
+	width: 99%;
+	z-index: 1001;
+	position: absolute;
+	color: red;
+	font-size: 120%;
+	font-family: Impact, Charcoal, sans-serif;
+	text-align: center;
+}
+
+#Instructions
+{
+	left: 37%;
+	width: 25%;
+	text-align: center;
+	position: absolute;
+	visibility: visible;
+	font-size: 500%;
+	font-family: Impact, Charcoal, sans-serif;
+	z-index: 2000;
+	color: yellow;
+	background-color: grey;
+}
+
+#Start
+{
+	top: 15%;
+	width: 99%;
+	height: auto;
+	text-align: center;
+	position: absolute;
+	visibility: visible;
+	font-size: 200%;
+	font-family: Impact, Charcoal, sans-serif;
+	z-index: 2000;
+	line-height: 50%;
+	background-color: grey;
+}
+
+#GO
+{
+	width: 99%;
+	top: 20%;
+	text-align: center;
+	position: absolute;
+	z-index: 2001;
+	font-size: 900%;
+	color:#AC0000;
+}
+#Escore
+{
+	width:99%;
+	bottom: 34%;
+	text-align: center;
+	position: absolute;
+	z-index: 2001;
+	font-size: 400%;
+	color:#B100B1;
+}
+#END
+{
+	background-color: black;
+	opacity: .7;
+	width: 99%;
+	height: 98%;
+	visibility: hidden;
+	position: absolute;
+	z-index: 2000;
+}
+
+#Score
+{
+	top: 4%;
+	left: 3%;
+	position: absolute;
+	z-index: 1000;
+	font-size:120%;
+	color: #B100B1;
+	background-color: #B8B8B8;
+	border-style: inset;
+	border-color: black;
+	border-radius: 5px;
+
+}
+
+#Money
+{
+	top: 5%;
+	right: 4%;
+	width: auto;
+	height: auto;
+	text-align: left;
+	position: absolute;
+	z-index: 1000;
+	font-size:150%;
+	background-color: black;
+	color: yellow;
+	border-style: groove;
+	border-color: white;
+	border-width: 5px;
+}
+
+#Table
+{
+	border-collapse: collapse;
+	position: absolute;
+	z-index: 1000;
+	left: 45%;
+	top: 2%;
+	background-color: #ECECEC;
+
+}
+#Table, td, th
+{
+	border: 1px solid black;
+}
